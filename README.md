@@ -66,7 +66,6 @@ After DNS propagates, enable **Enforce HTTPS** in the repo's Pages settings.
 
 ## TODO before launch
 
-- [ ] Add real Microsoft Forms registration URL to `hugo.toml` (`registerUrl`).
 - [ ] Confirm full names and titles for Lizzie B and Nicole W in
       `layouts/index.html`.
 - [ ] Confirm fourth panellist (Katherine Davies / Victoria S / other) and

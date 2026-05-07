@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
   eventDate = "Monday 25 May 2026"
   eventTime = "19:30 – 20:30 AEST"
   eventLocation = "Online via Zoom"
-  registerUrl = "#" # TODO: replace with Microsoft Forms registration link
+  registerUrl = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=UweTC-D4dUC7lmXVZKjcrkN4s77EosFIvSfo6kcSHblURU5RRk45VDBBRVM4QjRWRTZaRTdTNERCNy4u"
   contactEmail = "" # optional: add a contact address if you'd like one shown
 
 [markup.goldmark.renderer]
