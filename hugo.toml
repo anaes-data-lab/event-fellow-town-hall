@@ -1,0 +1,24 @@
+baseURL = "https://events.rch-anaesthesia.org/"
+languageCode = "en-au"
+title = "RCH Anaesthesia Fellowship Town Hall"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Information evening for prospective Paediatric Anaesthesia Fellows at the Royal Children's Hospital, Melbourne."
+  eventDate = "Monday 25 May 2026"
+  eventTime = "19:30 – 20:30 AEST"
+  eventLocation = "Online via Zoom"
+  registerUrl = "#" # TODO: replace with Microsoft Forms registration link
+  contactEmail = "" # optional: add a contact address if you'd like one shown
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+
+[minify]
+  disableHTML = false
+  minifyOutput = true

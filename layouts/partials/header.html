@@ -1,0 +1,26 @@
+{{ $icon := resources.Get "images/rch-icon.png" }}
+{{ $icon1x := $icon.Resize "56x56 png" }}
+{{ $icon2x := $icon.Resize "112x112 png" }}
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="{{ "/" | relURL }}">
+      <img class="site-header__logo"
+           src="{{ $icon1x.RelPermalink }}"
+           srcset="{{ $icon1x.RelPermalink }} 1x, {{ $icon2x.RelPermalink }} 2x"
+           width="56" height="56"
+           alt="The Royal Children's Hospital">
+      <span class="site-header__brand-text">
+        <strong>Anaesthesia Fellowship</strong>
+        <span>Town Hall · Information evening</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ "/" | relURL }}#about">About</a>
+      <a href="{{ "/" | relURL }}#program">Program</a>
+      <a href="{{ "/" | relURL }}#panel">Panel</a>
+      <a href="{{ "/faq/" | relURL }}">FAQ</a>
+      <a class="btn btn--cta btn--small" href="{{ site.Params.registerUrl }}" target="_blank" rel="noopener">Register</a>
+    </nav>
+  </div>
+  <div class="site-header__strip" aria-hidden="true"></div>
+</header>

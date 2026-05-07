@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="page">
+  <div class="container page__inner">
+    <header class="page__header">
+      <p class="page__kicker">{{ site.Title }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="page__lede">{{ . }}</p>{{ end }}
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    <p class="page__back"><a href="{{ "/" | relURL }}">&larr; Back to event details</a></p>
+  </div>
+</article>
+{{ end }}
