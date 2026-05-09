@@ -228,6 +228,15 @@ p { margin: 0 0 1em; }
   max-width: 56ch;
 }
 
+/* markdownify wraps prose in <p>; collapse outer margins so the
+   wrapper div lays out the same as the original <p class="..."> did. */
+.hero__lede > p:first-child,
+.hero__note > p:first-child,
+.section--cta__sub > p:first-child { margin-top: 0; }
+.hero__lede > p:last-child,
+.hero__note > p:last-child,
+.section--cta__sub > p:last-child { margin-bottom: 0; }
+
 /* ---------- Section base ---------- */
 .section { padding: clamp(3rem, 6vw, 5rem) 0; }
 .section--alt { background: var(--paper-tint); }
@@ -330,7 +339,11 @@ p { margin: 0 0 1em; }
   margin-inline: auto;
   text-align: center;
 }
-.section--cta p { color: rgba(255, 255, 255, 0.88); }
+.section--cta p,
+.section--cta .section--cta__body { color: rgba(255, 255, 255, 0.88); }
+.section--cta .section--cta__body { margin: 0 0 1em; }
+.section--cta .section--cta__body > p:first-child { margin-top: 0; }
+.section--cta .section--cta__body > p:last-child { margin-bottom: 0; }
 .section--cta a:not(.btn) { color: var(--rch-yellow); }
 .section--cta a:not(.btn):hover { color: white; }
 .section--cta__sub { font-size: 0.92rem; margin-top: 1.25rem; }

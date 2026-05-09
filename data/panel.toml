@@ -1,0 +1,21 @@
+# Panel members for the Town Hall.
+# Set `tbc = true` for an unfilled placeholder card (greyed-out treatment).
+# Set `nameTbc = true` to keep an "— full name TBC" suffix next to a name
+# whose surname isn't yet confirmed.
+
+[[members]]
+name = "Dr Balvindar Kaur"
+role = "Consultant Anaesthetist · Fellowship Program Director"
+
+[[members]]
+name = "Dr Lizzie Brodier"
+role = "Current Fellow · RCH Anaesthesia"
+
+[[members]]
+name = "Dr Nicole Wong"
+role = "Current Fellow · RCH Anaesthesia"
+
+[[members]]
+name = "Panellist TBC"
+role = "Further panellist to be confirmed"
+tbc = true

@@ -1,0 +1,37 @@
+# Running order for the Town Hall.
+# Edit / reorder / add items here. Layout is in layouts/index.html.
+
+[[items]]
+time = "5 min"
+title = "Welcome & introductions"
+description = "Session etiquette, introduction to the panel and how the evening will run."
+
+[[items]]
+time = "5 min"
+title = "Fellow story"
+description = "A short personal reflection from a recent fellow."
+
+[[items]]
+time = "10 min"
+title = "Fellowship overview & FAQs"
+description = "Structure of the 6 and 12 month fellowships, PICU and NICU rotations, and the most common questions answered up front."
+
+[[items]]
+time = "5 min"
+title = "Fellow story"
+description = "A second personal reflection from a current or recent fellow."
+
+[[items]]
+time = "20 min"
+title = "Breakout rooms"
+description = "Smaller, informal rooms with members of the panel — your chance to ask the questions you actually want answered."
+
+[[items]]
+time = "10 min"
+title = "Final discussion"
+description = "Reconvene as a whole group to share themes and address any remaining questions."
+
+[[items]]
+time = "5 min"
+title = "Further opportunities & close"
+description = "Leadership, research and education opportunities beyond clinical fellowship, and how to stay in touch."

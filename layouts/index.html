@@ -1,13 +1,10 @@
 {{ define "main" }}
+{{ $p := .Params }}
 <section class="hero">
   <div class="container hero__inner">
-    <p class="hero__eyebrow">Royal Children's Hospital · Melbourne</p>
-    <h1 class="hero__title">Anaesthesia Fellowship Town Hall</h1>
-    <p class="hero__lede">
-      An online information evening for senior anaesthesia trainees considering a
-      <strong>6&nbsp;or&nbsp;12&nbsp;month Paediatric Anaesthesia Fellowship</strong> at the
-      Royal Children's Hospital, Melbourne &mdash; including PICU and NICU rotation options.
-    </p>
+    <p class="hero__eyebrow">{{ $p.heroEyebrow }}</p>
+    <h1 class="hero__title">{{ $p.heroTitle }}</h1>
+    <div class="hero__lede">{{ $p.heroLede | markdownify }}</div>
 
     <dl class="event-card" aria-label="Event details">
       <div class="event-card__row">
@@ -26,36 +23,22 @@
 
     <div class="hero__actions">
       <a class="btn btn--cta" href="{{ site.Params.registerUrl }}" target="_blank" rel="noopener">
-        Register your interest
+        {{ $p.heroPrimaryCta }}
       </a>
-      <a class="btn btn--ghost" href="#program">See the program</a>
+      <a class="btn btn--ghost" href="#program">{{ $p.heroSecondaryCta }}</a>
     </div>
-    <p class="hero__note">
-      Registration is via Microsoft Forms. A Zoom link will be emailed to registered attendees
-      closer to the date.
-    </p>
+    <div class="hero__note">{{ $p.heroNote | markdownify }}</div>
   </div>
 </section>
 
 <section id="about" class="section">
   <div class="container section__grid">
     <div class="section__heading">
-      <span class="section__kicker">About the session</span>
-      <h2>Find out what fellowship at RCH is really like</h2>
+      <span class="section__kicker">{{ $p.aboutKicker }}</span>
+      <h2>{{ $p.aboutTitle }}</h2>
     </div>
     <div class="section__body prose">
-      <p>
-        This inaugural town hall is a chance to hear directly from current and recent fellows,
-        meet members of the consultant body, and ask the questions that don't get answered on
-        a job ad. Whether you are weighing up a 6 or 12 month fellowship, considering a PICU or
-        NICU rotation, or simply curious about life as a paediatric anaesthesia fellow at RCH,
-        you are warmly invited to join us.
-      </p>
-      <p>
-        We will share an overview of the fellowship structure, two short personal stories from
-        recent fellows, and then break into smaller rooms so you can ask questions in a more
-        informal setting before regrouping for a final discussion.
-      </p>
+      {{ $p.aboutBody | markdownify }}
     </div>
   </div>
 </section>
@@ -63,61 +46,21 @@
 <section id="program" class="section section--alt">
   <div class="container section__grid">
     <div class="section__heading">
-      <span class="section__kicker">Program</span>
-      <h2>Running order on the night</h2>
-      <p class="section__sub">A 60 minute session with breakout rooms, structured to leave room for your questions.</p>
+      <span class="section__kicker">{{ $p.programKicker }}</span>
+      <h2>{{ $p.programTitle }}</h2>
+      <p class="section__sub">{{ $p.programSub }}</p>
     </div>
     <div class="section__body">
       <ol class="agenda">
+        {{ range site.Data.agenda.items }}
         <li class="agenda__item">
-          <span class="agenda__time">5&nbsp;min</span>
+          <span class="agenda__time">{{ .time | replaceRE " " "&nbsp;" | safeHTML }}</span>
           <div>
-            <h3>Welcome &amp; introductions</h3>
-            <p>Session etiquette, introduction to the panel and how the evening will run.</p>
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
           </div>
         </li>
-        <li class="agenda__item">
-          <span class="agenda__time">5&nbsp;min</span>
-          <div>
-            <h3>Fellow story</h3>
-            <p>A short personal reflection from a recent fellow.</p>
-          </div>
-        </li>
-        <li class="agenda__item">
-          <span class="agenda__time">10&nbsp;min</span>
-          <div>
-            <h3>Fellowship overview &amp; FAQs</h3>
-            <p>Structure of the 6 and 12 month fellowships, PICU and NICU rotations, and the most common questions answered up front.</p>
-          </div>
-        </li>
-        <li class="agenda__item">
-          <span class="agenda__time">5&nbsp;min</span>
-          <div>
-            <h3>Fellow story</h3>
-            <p>A second personal reflection from a current or recent fellow.</p>
-          </div>
-        </li>
-        <li class="agenda__item">
-          <span class="agenda__time">20&nbsp;min</span>
-          <div>
-            <h3>Breakout rooms</h3>
-            <p>Smaller, informal rooms with members of the panel — your chance to ask the questions you actually want answered.</p>
-          </div>
-        </li>
-        <li class="agenda__item">
-          <span class="agenda__time">10&nbsp;min</span>
-          <div>
-            <h3>Final discussion</h3>
-            <p>Reconvene as a whole group to share themes and address any remaining questions.</p>
-          </div>
-        </li>
-        <li class="agenda__item">
-          <span class="agenda__time">5&nbsp;min</span>
-          <div>
-            <h3>Further opportunities &amp; close</h3>
-            <p>Leadership, research and education opportunities beyond clinical fellowship, and how to stay in touch.</p>
-          </div>
-        </li>
+        {{ end }}
       </ol>
     </div>
   </div>
@@ -126,28 +69,18 @@
 <section id="panel" class="section">
   <div class="container section__grid">
     <div class="section__heading">
-      <span class="section__kicker">Panel</span>
-      <h2>Who you'll hear from</h2>
-      <p class="section__sub">Panel members are confirmed below; one further panellist is to be confirmed.</p>
+      <span class="section__kicker">{{ $p.panelKicker }}</span>
+      <h2>{{ $p.panelTitle }}</h2>
+      <p class="section__sub">{{ $p.panelSub }}</p>
     </div>
     <div class="section__body">
       <ul class="panel-list">
-        <li class="panel-card">
-          <h3>Dr Balvindar Kaur</h3>
-          <p class="panel-card__role">Consultant Anaesthetist · Fellowship Program Director</p>
+        {{ range site.Data.panel.members }}
+        <li class="panel-card{{ if .tbc }} panel-card--tbc{{ end }}">
+          <h3>{{ .name }}{{ if .nameTbc }}<span class="panel-card__tbc">— full name TBC</span>{{ end }}</h3>
+          <p class="panel-card__role">{{ .role }}</p>
         </li>
-        <li class="panel-card">
-          <h3>Dr Lizzie Brodier<span class="panel-card__tbc"></span></h3>
-          <p class="panel-card__role">Current Fellow · RCH Anaesthesia</p>
-        </li>
-        <li class="panel-card">
-          <h3>Dr Nicole Wong<span class="panel-card__tbc"></span></h3>
-          <p class="panel-card__role">Current Fellow · RCH Anaesthesia</p>
-        </li>
-        <li class="panel-card panel-card--tbc">
-          <h3>Panellist TBC</h3>
-          <p class="panel-card__role">Further panellist to be confirmed</p>
-        </li>
+        {{ end }}
       </ul>
     </div>
   </div>
@@ -155,19 +88,12 @@
 
 <section id="register" class="section section--cta">
   <div class="container section--cta__inner">
-    <h2>Reserve your place</h2>
-    <p>
-      Spaces in the breakout rooms are limited, so please register in advance. We'll send the
-      Zoom link, the joining instructions and a short FAQ document to all registered attendees
-      in the week before the event.
-    </p>
+    <h2>{{ $p.ctaTitle }}</h2>
+    <div class="section--cta__body">{{ $p.ctaBody | markdownify }}</div>
     <a class="btn btn--cta btn--large" href="{{ site.Params.registerUrl }}" target="_blank" rel="noopener">
-      Register via Microsoft Forms
+      {{ $p.ctaButtonLabel }}
     </a>
-    <p class="section--cta__sub">
-      Have a question that can't wait? Read the <a href="{{ "/faq/" | relURL }}">frequently asked questions</a>
-      or contact the convenors.
-    </p>
+    <div class="section--cta__sub">{{ $p.ctaSub | markdownify }}</div>
   </div>
 </section>
 {{ end }}

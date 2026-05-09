@@ -24,16 +24,26 @@ hugo               # one-off production build into ./public
 
 ## Editing content
 
-- **Event details, registration link** — `hugo.toml` (`[params]`). Replace
-  `registerUrl` with the Microsoft Forms URL when ready.
-- **Landing page copy** — `layouts/index.html` (markup) plus the front matter in
-  `content/_index.md` (page title / meta description).
-- **FAQ page** — `content/faq.md`. Currently placeholders; expand questions as
-  Nicole's collated FAQs come through.
-- **Panel list** — `layouts/index.html`, the `#panel` section. Update names,
-  remove `panel-card--tbc` / `panel-card__tbc` markers as people are confirmed.
-- **Styles** — `assets/css/main.css`. Brand variables are at the top of the file
-  under `:root` (RCH navy, teal, red).
+All editable text and structured content lives outside the layout templates.
+You should not normally need to touch any HTML to update copy.
+
+| What you want to edit | Where |
+|---|---|
+| Event date / time / location / registration URL | `hugo.toml` → `[params]` |
+| Hero, About, Program, Panel, CTA section copy | `content/_index.md` (front matter — TOML between the `+++` fences) |
+| Agenda items (running order on the night) | `data/agenda.toml` — add/remove/reorder `[[items]]` blocks |
+| Panel members | `data/panel.toml` — add/remove/reorder `[[members]]` blocks |
+| FAQ questions and answers | `content/faq.md` (markdown body) |
+| Page title, meta description, OG tags | `content/_index.md` (top of front matter) |
+| Site-wide colours, type, spacing | `assets/css/main.css` (brand vars under `:root`) |
+
+The front-matter strings in `content/_index.md` accept Markdown — use `**bold**`
+for emphasis, blank lines between paragraphs for `aboutBody` etc.
+
+**Panel card flags**
+
+- `nameTbc = true` — adds an "— full name TBC" suffix next to the name
+- `tbc = true` — applies the greyed-out placeholder treatment for an unfilled slot
 
 ## Deployment
 
@@ -66,10 +76,8 @@ After DNS propagates, enable **Enforce HTTPS** in the repo's Pages settings.
 
 ## TODO before launch
 
-- [ ] Confirm full names and titles for Lizzie B and Nicole W in
-      `layouts/index.html`.
-- [ ] Confirm fourth panellist (Katherine Davies / Victoria S / other) and
-      replace the TBC card.
+- [ ] Confirm fourth panellist (Katherine Davies / Victoria S / other) — edit
+      `data/panel.toml` and remove the `tbc = true` flag on the placeholder.
 - [ ] Replace placeholder FAQ answers in `content/faq.md` with the collated
       answers.
 - [ ] Confirm whether the meeting agenda should be shown publicly or kept
