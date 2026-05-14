@@ -24,7 +24,7 @@ Applications are usually open in January with shortlisting in May. Interviews ar
 ### Do I need to be a current trainee to attend?
 
 The session is open to anyone considering a paediatric anaesthesia fellowship,
-and is pitched towards current trainees and recently qualified specialists.
+and is pitched towards current trainees applying for fellowship and recently qualified specialists.
 
 ### How are the breakout rooms organised?
 
@@ -33,4 +33,4 @@ groups are designed to be informal and conversational — there is no set agenda
 
 ### I have a specific question I'd like answered on the night.
 
-Please complete the registration form, which has a field for you to record your questions ahead of time. This will enable us to ensure you have the most accurate and up-to-date informtion.
+Please complete the registration form, which has a field for you to record your questions ahead of time. This will enable us to ensure you have the most accurate and up-to-date information.
